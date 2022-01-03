@@ -1,0 +1,43 @@
+{
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "transform": {
+      "node_modules/variables/.+\\.(j|t)sx?$": "ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!variables/.*)"
+    ]
+  },
+  "name": "produtos",
+  "version": "1.0.0",
+  "main": "server.ts",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/supertest": "^2.0.11",
+    "supertest": "^6.1.6",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.4"
+  },
+  "scripts": {
+    "start":"tsnd ./src/app.ts",
+    "create": "jest ./src/cases/createProduct create.test.ts",
+    "read": "jest ./src/cases/readProduct read.test.ts",
+    "update": "jest ./src/cases/updateProduct update.test.ts",
+    "delete": "jest ./src/cases/deleteProduct delete.test.ts",
+    "clone": "jest ./src/cases/cloneProduct clone.test.ts"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.4.5",
+    "@grpc/proto-loader": "^0.6.7",
+    "@types/jest": "^27.4.0",
+    "@types/validator": "^13.7.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "jest": "^27.4.5",
+    "mariadb": "^2.5.5",
+    "sequelize": "^6.12.4",
+    "ts-jest": "^27.1.2",
+    "ts-node-dev": "^1.1.8"
+  }
+}

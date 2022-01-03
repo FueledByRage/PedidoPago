@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+message Pharmacy{
+    string cnpj = 1;
+    string pharmacy_name = 2;
+    string manager = 3;
+    string opening = 4;
+    string closeAt = 5;
+    string address = 6;
+    string tel = 7;
+    string branches = 8;
+    string logoUrl = 9;
+}
+
+message RegisterPharmacyRequest{
+    Pharmacy pharmacy = 1;
+}
+
+message ReadPharmacyRequest{
+    string cnpj = 1;
+}
+
+message UpdatePharmacyRequest{
+    Pharmacy pharmacy = 1;
+}
+
+message DeletePharmacyRequest{
+    string cnpj = 1;
+}
+
+message AddBranchRequest{
+    string cnpj = 1;
+    string branch = 2;
+}
+
+message PharmacyResponse{
+    Pharmacy pharmacy = 1;
+}
+message Empty{
+
+}
+message DoneResponse{
+    bool done = 1;
+}
+
+service PharmacyService{
+    rpc create(RegisterPharmacyRequest) returns (PharmacyResponse);
+    rpc read(ReadPharmacyRequest) returns (PharmacyResponse);
+    rpc update(UpdatePharmacyRequest) returns (DoneResponse);
+    rpc del(DeletePharmacyRequest) returns (DoneResponse);
+    rpc add(AddBranchRequest) returns (DoneResponse);
+}

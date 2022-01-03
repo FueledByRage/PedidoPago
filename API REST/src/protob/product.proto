@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+message Product{
+    string product_name = 1;
+    string price = 2;
+    string igredients = 3;
+    string thumbUrl = 4;
+    bool disponibility = 5;
+    string volume = 6;
+}
+
+message RegisterProductRequest{
+    Product product = 1;
+}
+
+message ReadProductRequest{
+    string name = 1;
+}
+
+message UpdateProductRequest{
+    Product product = 1;
+}
+
+message DeleteProductRequest{
+    string id = 1;
+}
+
+
+message ProductResponse{
+    Product product = 1;
+}
+
+message DoneResponse{
+    bool done = 1;
+}
+message CloneRequest{
+    int32 id = 1;
+}
+
+service ProductService{
+    rpc create(RegisterProductRequest) returns (ProductResponse);
+    rpc read(ReadProductRequest) returns (ProductResponse);
+    rpc update(UpdateProductRequest) returns (DoneResponse);
+    rpc del(DeleteProductRequest) returns (DoneResponse);
+    rpc clone(CloneRequest) returns (ProductResponse);
+}
