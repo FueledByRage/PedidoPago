@@ -37,4 +37,4 @@ ENDPOINT | METHOD | PARAMS | EXPECTED SUCCESS | EXPECTED ERROR
 /product/:name| GET | name | CODE 200 - ok Dados do produto com o name fornecido | CODE 500
 /product/update | PUT | product_name, thumbUrl, volume, igredients, disponibility, price | CODE 200 - ok | CODE 500
 /product/:id | DELETE | id | CODE 200 - ok User's data | CODE 500
-/product/clone/:id | put | id | CODE 200 - ok Dados do produto clone| CODE 500
+/product/clone/:id | PUT | id | CODE 200 - ok Dados do produto clone| CODE 500
