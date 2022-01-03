@@ -66,7 +66,6 @@ router.put('/product', async(req: Request, res: Response)=>{
 });
 
 router.get('/product/:name', async (req: Request, res: Response)=>{
-
   const { name } = req.params;
   //@ts-ignore
   const response = await ProductClient.read({ name: name }, (err, notes) => {
